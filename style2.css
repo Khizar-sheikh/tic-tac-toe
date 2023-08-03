@@ -46,3 +46,18 @@ body {
   .cell:nth-child(9) {
       border-bottom: none;
   }
+  .cell[data-marker="x"]::before {
+    content: "X";
+    font-size: 110px;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.cell[data-marker="o"]::before {
+    content: "O";
+    font-size: 110px;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
