@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+  }
+  .board {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    align-content: center;
+    justify-content: center;
+    border-collapse: collapse;
+  }
+  .cell {
+  border: 2px solid black; 
+  }
+  .cell:nth-child(1),
+  .cell:nth-child(2),
+  .cell:nth-child(3) {
+      border-top: none;
+  }
+  
+  .cell:nth-child(1),
+  .cell:nth-child(4),
+  .cell:nth-child(7) {
+      border-left: none;
+  }
+  
+  .cell:nth-child(3),
+  .cell:nth-child(6),
+  .cell:nth-child(9) {
+      border-right: none;
+  }
+  
+  .cell:nth-child(7),
+  .cell:nth-child(8),
+  .cell:nth-child(9) {
+      border-bottom: none;
+  }
