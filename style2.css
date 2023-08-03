@@ -6,19 +6,19 @@ body {
     margin: 0;
 }
   .board {
-    height: 100vh;
+    height: 80vh;
     display: grid;
     grid-template-columns: repeat(3, 120px);
     grid-template-rows: repeat(3, 120px);
     align-content: center;
     justify-content: center;
-    border-collapse: collapse;
   }
   .header {
     background-image: linear-gradient(to left, #15d2d2, rgb(90, 95, 152), rgba(207, 116, 116, 0.947));
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     padding: 5px;
+  font-family: sans-serif;
 }
   .cell {
   border: 2px solid black; 
@@ -48,7 +48,7 @@ body {
   }
   .cell[data-marker="x"]::before {
     content: "X";
-    font-size: 110px;
+    font-size: 100px;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
@@ -56,8 +56,36 @@ body {
 
 .cell[data-marker="o"]::before {
     content: "O";
-    font-size: 110px;
+    font-size: 100px;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
+}
+@media screen and (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .cell[data-marker="x"]::before ,.cell[data-marker="o"]::before {
+        font-size: 70px;
+    }
+    .header {
+        font-size: 15px;
+        padding: 20px;
+    }
+}
+
+/* Media query for screens smaller than 400px */
+@media screen and (max-width: 400px) {
+    .board {
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(3, 60px);
+    }
+    .cell[data-marker="x"]::before , .cell[data-marker="o"]::before{
+        font-size: 50px;
+    }
+    .board{
+        height: 60vh;
+    }
 }
