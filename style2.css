@@ -1,91 +1,134 @@
 body {
-    margin: 0;
-  }
-  body {
-    background-color: #e6e6e4f2;
-    margin: 0;
+  margin: 0;
 }
-  .board {
-    height: 80vh;
-    display: grid;
-    grid-template-columns: repeat(3, 120px);
-    grid-template-rows: repeat(3, 120px);
-    align-content: center;
-    justify-content: center;
-  }
-  .header {
-    background-image: linear-gradient(to left, #15d2d2, rgb(90, 95, 152), rgba(207, 116, 116, 0.947));
-    text-align: center;
-    font-size: 1.7rem;
-    padding: 5px;
+body {
+  background-color: #e6e6e4f2;
+  margin: 0;
+}
+.board {
+  margin-top: 50px;
+  height: 55vh;
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  align-content: center;
+  justify-content: center;
+}
+h1{
+  margin: 0;
+}
+.header  {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  background-image: linear-gradient(
+    to left,
+    #15d2d2,
+    rgb(90, 95, 152),
+    rgba(207, 116, 116, 0.947)
+  );
+  text-align: center;
+  font-size: 1.7rem;
+  margin: auto;
+  margin-top: 10px;
+  padding: 5px;
   font-family: sans-serif;
 }
-  .cell {
-  border: 2px solid black; 
-  }
-  .cell:nth-child(1),
-  .cell:nth-child(2),
-  .cell:nth-child(3) {
-      border-top: none;
-  }
-  
-  .cell:nth-child(1),
-  .cell:nth-child(4),
-  .cell:nth-child(7) {
-      border-left: none;
-  }
-  
-  .cell:nth-child(3),
-  .cell:nth-child(6),
-  .cell:nth-child(9) {
-      border-right: none;
-  }
-  
-  .cell:nth-child(7),
-  .cell:nth-child(8),
-  .cell:nth-child(9) {
-      border-bottom: none;
-  }
-  .cell[data-marker="x"]::before {
-    content: "X";
-    font-size: 100px;
+.cell {
+  border: 2px solid black;
+}
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+.cell[data-marker="x"]::before {
+  content: "X";
+  font-size: 100px;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
 }
 
 .cell[data-marker="o"]::before {
-    content: "O";
-    font-size: 100px;
+  content: "O";
+  font-size: 100px;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
 }
-@media screen and (max-width: 600px) {
-    .board {
-        grid-template-columns: repeat(3, 80px);
-        grid-template-rows: repeat(3, 80px);
-    }
 
-    .cell[data-marker="x"]::before ,.cell[data-marker="o"]::before {
-        font-size: 70px;
-    }
-    .header {
-        font-size: 15px;
-        padding: 20px;
-    }
+.playAgain button {
+  margin-top: 4rem;
+  width: 12rem;
+  height: 3rem;
+  font-family: sans-serif;
+  position: relative;
+  font-weight: bolder;
+  font-size: 3.2vh;
+  border: 2px solid  rgb(90, 95, 152);
+}
+.playAgain :hover{
+  background-image: linear-gradient(
+    to left,
+    #15d2d2,
+    rgb(90, 95, 152),
+    rgba(207, 116, 116, 0.947)
+  );
+ transform: scale3d(1 , 2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.buttons{
+  display: flex ; 
+  justify-content: center; 
+}
+
+@media screen and (max-width: 600px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+
+  .cell[data-marker="x"]::before,
+  .cell[data-marker="o"]::before {
+    font-size: 70px;
+  }
+  .header {
+    font-size: 10px;
+    padding: 20px;
+  }
 }
 
 /* Media query for screens smaller than 400px */
 @media screen and (max-width: 400px) {
-    .board {
-        grid-template-columns: repeat(3, 60px);
-        grid-template-rows: repeat(3, 60px);
-    }
-    .cell[data-marker="x"]::before , .cell[data-marker="o"]::before{
-        font-size: 50px;
-    }
-    .board{
-        height: 60vh;
-    }
+  .board {
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+  }
+  .cell[data-marker="x"]::before,
+  .cell[data-marker="o"]::before {
+    font-size: 50px;
+  }
+  .board {
+    height: 60vh;
+  }
+
 }
