@@ -15,46 +15,45 @@ function togglePlayer() {
 
 // Function to check for a win
 function checkWin(currentClass) {
-    // Define the winning combinations as an array of arrays
-    const WINNING_COMBINATIONS = [
-      [0, 1, 2], 
-      [3, 4, 5], 
-      [6, 7, 8], 
-      [0, 3, 6], 
-      [1, 4, 7], 
-      [2, 5, 8],
-      [0, 4, 8], 
-      [2, 4, 6], 
-    ];
-  
-    // Check each winning combination
-    for (const combination of WINNING_COMBINATIONS) {
-      const [a, b, c] = combination;
-      const cellA = cells[a];
-      const cellB = cells[b]; 
-      const cellC = cells[c];
-  
-      // If all three cells have the current player's class, return true
-      if (
-        cellA.classList.contains(currentClass) &&
-        cellB.classList.contains(currentClass) &&
-        cellC.classList.contains(currentClass)
-      ) {
-        return true;
-      }
+  // Define the winning combinations as an array of arrays
+  const WINNING_COMBINATIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  // Check each winning combination
+  for (const combination of WINNING_COMBINATIONS) {
+    const [a, b, c] = combination;
+    const cellA = cells[a];
+    const cellB = cells[b];
+    const cellC = cells[c];
+
+    // If all three cells have the current player's class, return true
+    if (
+      cellA.classList.contains(currentClass) &&
+      cellB.classList.contains(currentClass) &&
+      cellC.classList.contains(currentClass)
+    ) {
+      return true;
     }
   }
-  
+}
 
 // Function to check for a draw
 function checkDraw() {
-    for (const cell of cells) {
-      if (!cell.classList.contains("x") && !cell.classList.contains("o")) {
-        return false;
-      }
+  for (const cell of cells) {
+    if (!cell.classList.contains("x") && !cell.classList.contains("o")) {
+      return false;
     }
-    return true;
   }
+  return true;
+}
 
 // Function to handle the cell click event
 function handleCellClick(event) {
@@ -87,7 +86,7 @@ function handleCellClick(event) {
 }
 
 // Function to reset the game
-function resetGame() { 
+function resetGame() {
   playAgainButton2.style.display = " flex";
   WinnerCard.style.display = "none";
   cells.forEach((cell) => {
@@ -106,3 +105,28 @@ cells.forEach((cell) => {
 // Event listener for "Play Again" button click
 playAgainButton.addEventListener("click", resetGame);
 playAgainButton2.addEventListener("click", resetGame);
+
+// Function to handle the hover effect on cells
+function handleCellHover(event) {
+    const cell = event.target;
+    if (!cell.classList.contains('x') && !cell.classList.contains('o')) {
+      // Add data-marker attribute on hover
+      cell.setAttribute('data-marker', currentPlayer);
+    }
+  }
+  
+  // Function to remove the hover effect when the mouse leaves the cell
+  function handleCellLeave(event) {
+    const cell = event.target;
+    if (!cell.classList.contains('x') && !cell.classList.contains('o')) {
+      // Remove data-marker attribute when mouse leaves the cell
+      cell.removeAttribute('data-marker');
+    }
+  }
+  
+  // Add event listeners for cell hover and leave
+  cells.forEach(cell => {
+    cell.addEventListener('mouseenter', handleCellHover);
+    cell.addEventListener('mouseleave', handleCellLeave);
+  });
+  
