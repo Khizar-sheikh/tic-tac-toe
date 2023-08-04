@@ -14,10 +14,10 @@ body {
   align-content: center;
   justify-content: center;
 }
-h1{
+h1 {
   margin: 0;
 }
-.header  {
+.header {
   display: flex;
   width: 40%;
   justify-content: center;
@@ -36,6 +36,10 @@ h1{
 }
 .cell {
   border: 2px solid black;
+}
+.cell:hover {
+  cursor: pointer;
+  background-color: lightgrey;
 }
 .cell:nth-child(1),
 .cell:nth-child(2),
@@ -63,6 +67,7 @@ h1{
 .cell[data-marker="x"]::before {
   content: "X";
   font-size: 100px;
+  color: rgb(219, 116, 116);
   display: flex;
   justify-content: center;
   font-family: sans-serif;
@@ -70,6 +75,7 @@ h1{
 
 .cell[data-marker="o"]::before {
   content: "O";
+  color: rgb(98, 98, 164);
   font-size: 100px;
   display: flex;
   justify-content: center;
@@ -77,30 +83,60 @@ h1{
 }
 
 .playAgain button {
-  margin-top: 4rem;
+  margin-top:-20px ;
   width: 12rem;
   height: 3rem;
   font-family: sans-serif;
   position: relative;
   font-weight: bolder;
   font-size: 3.2vh;
-  border: 2px solid  rgb(90, 95, 152);
+  border: 2px solid rgb(90, 95, 152);
+  background-color:rgb(116, 116, 116) ;
 }
-.playAgain :hover{
-  background-image: linear-gradient(
-    to left,
-    #15d2d2,
-    rgb(90, 95, 152),
-    rgba(207, 116, 116, 0.947)
-  );
- transform: scale3d(1 , 2);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.playAgain :hover {
+  transform: scale3d(1, 2);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.buttons{
-  display: flex ; 
-  justify-content: center; 
+#playAgain2{
+  align-items: center;
+  justify-content: center;
+  margin: 2.73rem;
+  cursor: pointer;
 }
-
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+.Winner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 70%);
+  display: none;
+}
+.result {
+  border: 2px solid black;
+  height: 15rem;
+  width: 30rem;
+  background-image: linear-gradient(to left, #7c9191, rgb(148 148 148 / 50%));
+}
+#greet {
+  text-align: center;
+  margin: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2rem;
+}
+#AnnounceResult{
+text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 3rem;
+margin-top: -14px;
+color: rgb(215, 40, 40);
+font-style: italic;
+}
 @media screen and (max-width: 600px) {
   .board {
     grid-template-columns: repeat(3, 80px);
@@ -130,5 +166,4 @@ h1{
   .board {
     height: 60vh;
   }
-
 }
